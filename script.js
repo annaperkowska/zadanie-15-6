@@ -59,8 +59,9 @@ class Stopwatch {
 			seconds: 0,
 			miliseconds: 0
 		};
-		
+		this.display.innerText = this.format(this.times);
     }
+
 }	
 
 function pad0(value) {
