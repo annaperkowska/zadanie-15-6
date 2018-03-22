@@ -26,7 +26,7 @@ var Stopwatch = function () {
 	}, {
 		key: 'print',
 		value: function print() {
-			this.display.innetText = this.format(this.times);
+			this.display.innerText = this.format(this.times);
 		}
 	}, {
 		key: 'format',
@@ -71,6 +71,15 @@ var Stopwatch = function () {
 			this.running = false;
 			clearInterval(this.watch);
 		}
+	}, {
+		key: 'resetTime',
+		value: function resetTime() {
+			this.times = {
+				minutes: 0,
+				seconds: 0,
+				miliseconds: 0
+			};
+		}
 	}]);
 
 	return Stopwatch;
@@ -94,4 +103,9 @@ startButton.addEventListener('click', function () {
 var stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', function () {
 	return stopwatch.stop();
+});
+
+var resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', function () {
+	return stopwatch.resetTime();
 });
